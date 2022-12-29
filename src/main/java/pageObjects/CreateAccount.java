@@ -95,8 +95,7 @@ public class CreateAccount {
         driver.findElement(password).sendKeys(enterPassword);
     }
 
-<<<<<<< HEAD
-=======
+
     public void setConfirmedPassword(String enterConfirmPassword) {
         driver.findElement(password).sendKeys(enterConfirmPassword);
     }
@@ -118,5 +117,5 @@ public class CreateAccount {
     }
 
 
->>>>>>> createAccount
+
 }
