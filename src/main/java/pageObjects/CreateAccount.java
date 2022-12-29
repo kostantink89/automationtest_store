@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class CreateAccount {
 
@@ -43,7 +44,6 @@ public class CreateAccount {
     private By agreeCheckBox = By.xpath("//input[@name='agree']");
 
     private By continueButton = By.xpath("//button[@title='Continue']");
-
 
 
 
