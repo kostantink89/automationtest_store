@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class CreateAccount {
 
@@ -73,23 +74,22 @@ public class CreateAccount {
         driver.findElement(city).sendKeys(enterCity);
     }
 
-    public void setRegion(String enterRegion) {
-        driver.findElement(region).sendKeys(enterRegion);
+    public void setRegion(String country) {
+        Select var = new Select(driver.findElement(region));
+        var.selectByValue(country);
     }
 
-    public void setZipcode(String enterZipCode) {
+    public void setZipCode(String enterZipCode) {
         driver.findElement(zipCode).sendKeys(enterZipCode);
     }
 
-    public void setCountry(String enterCountry) {
-        driver.findElement(country).sendKeys(enterCountry);
+    public WebElement setCountry() {
+        return driver.findElement(country);
     }
 
     public void enterLoginName(String enterLoginName) {
         driver.findElement(loginName).sendKeys(enterLoginName);
     }
-
-
 
 
 }
