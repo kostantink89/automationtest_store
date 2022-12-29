@@ -112,4 +112,7 @@ public class CreateAccount {
     public WebElement getContinueButton() {
         return driver.findElement(continueButton);
     }
+
+    public void test2() {
+    }
 }
