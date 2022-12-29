@@ -89,7 +89,27 @@ public class CreateAccount {
         driver.findElement(loginName).sendKeys(enterLoginName);
     }
 
+    public void setPassword(String enterPassword) {
+        driver.findElement(password).sendKeys(enterPassword);
+    }
 
+    public void setConfirmedPassword(String enterConfirmPassword) {
+        driver.findElement(password).sendKeys(enterConfirmPassword);
+    }
 
+    public void setSubscribeYes() {
+        driver.findElement(subscribeYesButton).click();
+    }
 
+    public void setSubscribeNo() {
+        driver.findElement(subscribeNoButton).click();
+    }
+
+    public void clickOnAgreeCheckBox() {
+        driver.findElement(agreeCheckBox).click();
+    }
+
+    public WebElement getContinueButton() {
+        return driver.findElement(continueButton);
+    }
 }
