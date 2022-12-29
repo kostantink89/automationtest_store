@@ -45,6 +45,50 @@ public class CreateAccount {
 
     private By continueButton = By.xpath("//button[@title='Continue']");
 
+    public void setFirstName(String value) {
+        driver.findElement(firstName).sendKeys(value);
+    }
+
+    public void setLastName(String value) {
+        driver.findElement(lastName).sendKeys(value);
+    }
+
+    public void setEmail(String text) {
+        driver.findElement(email).sendKeys(text);
+    }
+
+    public void setTelephone(String phone) {
+        driver.findElement(telephone).sendKeys(phone);
+    }
+
+    public void setCompany(String enterCompany) {
+        driver.findElement(company).sendKeys(enterCompany);
+    }
+
+    public void setAddress(String enterAddress) {
+        driver.findElement(address).sendKeys(enterAddress);
+    }
+
+    public void setCity(String enterCity) {
+        driver.findElement(city).sendKeys(enterCity);
+    }
+
+    public void setRegion(String enterRegion) {
+        driver.findElement(region).sendKeys(enterRegion);
+    }
+
+    public void setZipcode(String enterZipCode) {
+        driver.findElement(zipCode).sendKeys(enterZipCode);
+    }
+
+    public void setCountry(String enterCountry) {
+        driver.findElement(country).sendKeys(enterCountry);
+    }
+
+    public void enterLoginName(String enterLoginName) {
+        driver.findElement(loginName).sendKeys(enterLoginName);
+    }
+
 
 
 
