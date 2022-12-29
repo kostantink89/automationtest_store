@@ -25,5 +25,5 @@ public class SuccessRegisterPage {
     public String successText() {
         return driver.findElement(successText).getText();
 
-
+    }
 }

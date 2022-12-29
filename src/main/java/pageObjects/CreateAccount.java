@@ -74,9 +74,9 @@ public class CreateAccount {
         driver.findElement(city).sendKeys(enterCity);
     }
 
-    public void setRegion(String country) {
+    public void setRegion(String state) {
         Select var = new Select(driver.findElement(region));
-        var.selectByValue(country);
+        var.selectByVisibleText(state);
     }
 
     public void setZipCode(String enterZipCode) {
@@ -97,7 +97,7 @@ public class CreateAccount {
 
 
     public void setConfirmedPassword(String enterConfirmPassword) {
-        driver.findElement(password).sendKeys(enterConfirmPassword);
+        driver.findElement(confirmPassword).sendKeys(enterConfirmPassword);
     }
 
     public void setSubscribeYes() {
@@ -115,7 +115,6 @@ public class CreateAccount {
     public WebElement getContinueButton() {
         return driver.findElement(continueButton);
     }
-
 
 
 }

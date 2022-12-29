@@ -1,5 +1,7 @@
 import base.BasePage;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.AccountLogin;
 import pageObjects.CreateAccount;
@@ -40,7 +42,7 @@ public class RegisterNewUser extends BasePage {
         Thread.sleep(1500);
         Select country = new Select(account.setCountry());
         Thread.sleep(1500);
-        country.selectByValue("United States");
+        country.selectByVisibleText("United States");
         Thread.sleep(1500);
         account.setRegion("Indiana");
         Thread.sleep(1500);
@@ -48,7 +50,7 @@ public class RegisterNewUser extends BasePage {
         Thread.sleep(1500);
         account.enterLoginName("bolton11");
         Thread.sleep(1500);
-        account.setPassword("boltibolti");
+        account.setPassword("boltibolti11");
         Thread.sleep(1500);
         account.setConfirmedPassword("boltibolti11");
         Thread.sleep(1500);
@@ -56,12 +58,15 @@ public class RegisterNewUser extends BasePage {
         Thread.sleep(1500);
         account.clickOnAgreeCheckBox();
         Thread.sleep(1500);
-        account.getContinueButton();
+        account.getContinueButton().click();
         Thread.sleep(1500);
 
-        SuccessRegisterPage  success = new SuccessRegisterPage(driver);
-
-
+        SuccessRegisterPage success = new SuccessRegisterPage(driver);
+        Thread.sleep(1500);
+        String expectedMessage = "YOUR ACCOUNT HAS BEEN CREATED!";
+        String actualMessage = success.getAccountText();
+        Thread.sleep(1500);
+        Assert.assertEquals(actualMessage, expectedMessage);
 
 
     }
