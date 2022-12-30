@@ -16,7 +16,7 @@ import java.util.Properties;
 
 public class BasePage {
 
-    public WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeTest
     public void setup() throws IOException {
