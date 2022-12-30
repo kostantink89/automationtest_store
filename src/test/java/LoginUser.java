@@ -21,6 +21,7 @@ public class LoginUser extends BasePage {
         account.enterLoginName("bolton11");
         Thread.sleep(1500);
         account.enterPassword("boltibolti11");
+        account.getLoginButton().click();
 
         Thread.sleep(1500);
         MyAccountPage myAccount = new MyAccountPage(driver);
