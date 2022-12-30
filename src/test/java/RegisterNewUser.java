@@ -11,7 +11,7 @@ import pageObjects.SuccessRegisterPage;
 public class RegisterNewUser extends BasePage {
 
 
-    @Test
+    @Test(enabled = false)
     public void endToEndRegisterUserTest() throws InterruptedException {
 
         Thread.sleep(1500);

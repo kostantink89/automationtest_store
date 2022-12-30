@@ -36,11 +36,11 @@ public class AccountLogin {
         return driver.findElement(continueButton);
     }
 
-    public void setLoginName(String text) {
+    public void enterLoginName(String text) {
         driver.findElement(loginName).sendKeys(text);
     }
 
-    public void setPassword(String text) {
+    public void enterPassword(String text) {
         driver.findElement(password).sendKeys(text);
     }
 
