@@ -3,10 +3,15 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -15,6 +20,8 @@ public class HomePage {
 
     private By home = By.xpath("//a[contains(@class,'active menu_home')]");
     private By apparel = By.linkText("APPAREL & ACCESSORIES");
+
+    private By tShirts = By.xpath("//li[2]//div[1]//ul[1]//li[2]//a[1]");
     private By makeup = By.linkText("MAKEUP");
 
     private By skincare = By.linkText("FRAGRANCE");
@@ -90,6 +97,12 @@ public class HomePage {
         return driver.findElement(loginOrRegister);
     }
 
+    public WebElement getTShirt() {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement tshirt = wait.until(ExpectedConditions.visibilityOfElementLocated(tShirts));
+        return tshirt;
+
+    }
 }
 
     
