@@ -25,7 +25,6 @@ public class HighWedgeDetails {
 
     private By AddToCartButton = By.xpath("//a[@class='cart']");
 
-
     public WebElement getThirdSize() {
         return driver.findElement(thirdSize);
     }
@@ -59,3 +58,6 @@ public class HighWedgeDetails {
 
 
 }
+
+
+

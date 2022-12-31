@@ -35,6 +35,9 @@ public class BuyAndOrderProduct extends BasePage {
         cart.clickOnContinueShoppingButton();
         //Returning back to page with high wedge product
         //Navigating to T-Shirts page
+        home.moveToElementApparel();
+        home.getTShirts().click();
+
 
 
 
