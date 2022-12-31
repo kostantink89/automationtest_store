@@ -42,9 +42,10 @@ public class HighWedgeDetails {
         return driver.findElement(sixthSize);
     }
 
-    public void selectShoeSize(String value) {
+
+    public void selectShoeColour(String setColour) {
         Select select = new Select(driver.findElement(getShoeColour));
-        select.selectByVisibleText(value);
+        select.selectByVisibleText(setColour);
 
     }
 
