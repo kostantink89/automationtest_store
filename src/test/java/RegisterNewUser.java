@@ -1,12 +1,8 @@
 import base.BasePage;
-import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.AccountLogin;
-import pageObjects.CreateAccount;
-import pageObjects.HomePage;
-import pageObjects.SuccessRegisterPage;
+import pageObjects.home.HomePage;
+import pageObjects.account.SuccessRegisterPage;
 
 public class RegisterNewUser extends BasePage {
 

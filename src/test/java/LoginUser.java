@@ -1,9 +1,8 @@
 import base.BasePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.AccountLogin;
-import pageObjects.HomePage;
-import pageObjects.MyAccountPage;
+import pageObjects.home.HomePage;
+import pageObjects.account.MyAccountPage;
 
 public class LoginUser extends BasePage {
 
