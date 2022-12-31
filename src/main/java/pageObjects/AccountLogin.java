@@ -32,20 +32,25 @@ public class AccountLogin {
         return driver.findElement(newCustomerText);
     }
 
-    public WebElement getContinueButton() {
-        return driver.findElement(continueButton);
+    public CreateAccount getContinueButton() {
+        driver.findElement(continueButton).click();
+        return new CreateAccount(driver);
     }
 
-    public void enterLoginName(String text) {
-        driver.findElement(loginName).sendKeys(text);
+    public AccountLogin login(String enterYourLogin, String enterYourPassword) {
+        driver.findElement(loginName).sendKeys(enterYourLogin);
+        driver.findElement(password).sendKeys(enterYourPassword);
+        return this;
     }
 
-    public void enterPassword(String text) {
-        driver.findElement(password).sendKeys(text);
+    public AccountLogin enterPassword(String setPassword) {
+        driver.findElement(password).sendKeys(setPassword);
+        return this;
     }
 
-    public WebElement getLoginButton() {
-        return driver.findElement(loginButton);
+    public MyAccountPage clickOnLoginButton() {
+        driver.findElement(loginButton).click();
+        return new MyAccountPage(driver);
     }
 
 

@@ -18,12 +18,13 @@ public class SuccessRegisterPage {
 
     private By successText = By.xpath("//section/p[text()='Congratulations! Your new account has been successfully created!']");
 
+    public WebElement getActualAccountText() {
+        return driver.findElement(accountCreatedText);
+    }
+
     public String getAccountText() {
-        return driver.findElement(accountCreatedText).getText();
+        return getActualAccountText().getText();
     }
 
-    public String successText() {
-        return driver.findElement(successText).getText();
 
-    }
 }

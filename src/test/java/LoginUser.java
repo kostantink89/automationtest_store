@@ -9,27 +9,15 @@ public class LoginUser extends BasePage {
 
 
     @Test
-    public void loginUserTest() throws InterruptedException {
+    public void loginUserTest() {
 
-        Thread.sleep(1500);
         HomePage home = new HomePage(driver);
-        home.getLoginOrRegister().click();
-        Thread.sleep(1500);
+        home.getLoginRegister()
+                .login("spparowj90", "sparri1")
+                .clickOnLoginButton();
 
-        AccountLogin account = new AccountLogin(driver);
-        Thread.sleep(1500);
-        account.enterLoginName("bolton11");
-        Thread.sleep(1500);
-        account.enterPassword("boltibolti11");
-        account.getLoginButton().click();
-
-        Thread.sleep(1500);
         MyAccountPage myAccount = new MyAccountPage(driver);
-        Thread.sleep(1500);
-        Assert.assertEquals(myAccount.getMyAccountText(), "MY ACCOUNT");
-        Thread.sleep(1500);
-
-
+        Assert.assertEquals(myAccount.getActualAccountText(), "MY ACCOUNT");
 
 
     }

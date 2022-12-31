@@ -46,74 +46,93 @@ public class CreateAccount {
 
     private By continueButton = By.xpath("//button[@title='Continue']");
 
-    public void setFirstName(String value) {
-        driver.findElement(firstName).sendKeys(value);
+    public CreateAccount setFirstName(String enterFirstName) {
+        driver.findElement(firstName).sendKeys(enterFirstName);
+        return this;
     }
 
-    public void setLastName(String value) {
-        driver.findElement(lastName).sendKeys(value);
+    public CreateAccount setLastName(String enterLastName) {
+        driver.findElement(lastName).sendKeys(enterLastName);
+        return this;
     }
 
-    public void setEmail(String text) {
-        driver.findElement(email).sendKeys(text);
+    public CreateAccount setEmail(String enterEmail) {
+        driver.findElement(email).sendKeys(enterEmail);
+        return this;
     }
 
-    public void setTelephone(String phone) {
-        driver.findElement(telephone).sendKeys(phone);
+    public CreateAccount setTelephone(String setNumber) {
+        driver.findElement(telephone).sendKeys(setNumber);
+        return this;
     }
 
-    public void setCompany(String enterCompany) {
+    public CreateAccount setCompany(String enterCompany) {
         driver.findElement(company).sendKeys(enterCompany);
+        return this;
     }
 
-    public void setAddress(String enterAddress) {
+    public CreateAccount setAddress(String enterAddress) {
         driver.findElement(address).sendKeys(enterAddress);
+        return this;
     }
 
-    public void setCity(String enterCity) {
+    public CreateAccount setCity(String enterCity) {
         driver.findElement(city).sendKeys(enterCity);
+        return this;
     }
 
-    public void setRegion(String state) {
+    public CreateAccount setRegion(String state) {
         Select var = new Select(driver.findElement(region));
         var.selectByVisibleText(state);
+        return this;
     }
 
-    public void setZipCode(String enterZipCode) {
+    public CreateAccount setZipCode(String enterZipCode) {
         driver.findElement(zipCode).sendKeys(enterZipCode);
+        return this;
     }
 
-    public WebElement setCountry() {
-        return driver.findElement(country);
+    public CreateAccount setCountry(String enterCountry) {
+        Select selectCountry = new Select(driver.findElement(country));
+        selectCountry.selectByVisibleText(enterCountry);
+        return this;
     }
 
-    public void enterLoginName(String enterLoginName) {
+    public CreateAccount enterLoginName(String enterLoginName) {
         driver.findElement(loginName).sendKeys(enterLoginName);
+        return this;
     }
 
-    public void setPassword(String enterPassword) {
+    public CreateAccount setPassword(String enterPassword) {
         driver.findElement(password).sendKeys(enterPassword);
+        return this;
     }
 
 
-    public void setConfirmedPassword(String enterConfirmPassword) {
+    public CreateAccount setConfirmedPassword(String enterConfirmPassword) {
         driver.findElement(confirmPassword).sendKeys(enterConfirmPassword);
+        return this;
+
     }
 
-    public void setSubscribeYes() {
+    public CreateAccount setSubscribeYes() {
         driver.findElement(subscribeYesButton).click();
+        return this;
     }
 
-    public void setSubscribeNo() {
+    public CreateAccount setSubscribeNo() {
         driver.findElement(subscribeNoButton).click();
+        return this;
     }
 
-    public void clickOnAgreeCheckBox() {
+    public CreateAccount clickOnAgreeCheckBox() {
         driver.findElement(agreeCheckBox).click();
+        return this;
     }
 
-    public WebElement getContinueButton() {
-        return driver.findElement(continueButton);
+    public SuccessRegisterPage getContinueButton() {
+        driver.findElement(continueButton).click();
+        return new SuccessRegisterPage(driver);
     }
 
 

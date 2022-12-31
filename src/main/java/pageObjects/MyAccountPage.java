@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class MyAccountPage {
 
@@ -16,8 +17,13 @@ public class MyAccountPage {
     private By displayedName = By.xpath("//span[@class='subtext']");
 
 
-    public String getMyAccountText() {
-        return driver.findElement(myAccount).getText();
+    public WebElement getMyAccountText() {
+        return driver.findElement(myAccount);
+    }
+
+    public String getActualAccountText() {
+        String actualMessage = getMyAccountText().getText();
+        return actualMessage;
     }
 
     public String getDisplayedName() {

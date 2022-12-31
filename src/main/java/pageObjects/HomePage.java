@@ -93,8 +93,9 @@ public class HomePage {
 
     }
 
-    public WebElement getLoginOrRegister() {
-        return driver.findElement(loginOrRegister);
+    public AccountLogin getLoginRegister() {
+        driver.findElement(loginOrRegister).click();
+        return new AccountLogin(driver);
     }
 
     public WebElement getTShirt() {
@@ -103,8 +104,6 @@ public class HomePage {
         return tshirt;
 
     }
-
-
 
 
 }
