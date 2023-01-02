@@ -15,7 +15,7 @@ public class ShoppingCart {
     }
 
     private By cartUpdate = By.id("#cart_update");
-    private By cartCheckOut = By.id("#cart_checkout1");
+    private By cartCheckOut = By.id("cart_checkout1");
 
     private By continueShoppingButton = By.xpath("//i[@class='fa fa-arrow-right']");
 

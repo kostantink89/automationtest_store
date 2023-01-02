@@ -3,15 +3,18 @@ package pageObjects.tshirts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class DesignerMenProduct {
 
-    Select select;
-
     private WebDriver driver;
+    private WebElement element;
 
-    private WebElement element = null;
 
     public DesignerMenProduct(WebDriver driver) {
         this.driver = driver;
@@ -26,18 +29,22 @@ public class DesignerMenProduct {
     private By addToCartButton = By.xpath("//a[@class='cart']");
 
 
-    public WebElement getShirtColour(String enterColor) {
-        element = driver.findElement(colour);
-        select = new Select(element);
-        select.selectByVisibleText(enterColor);
-        return element;
+    public void getShirtColour(String value) {
+        Select selectColour = new Select(driver.findElement(colour));
+        selectColour.selectByValue(value);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(colour));
+
+
     }
 
-    public WebElement getShirtSize(String enterSize) {
-        element = driver.findElement(size);
-        select = new Select(element);
-        select.selectByVisibleText(enterSize);
-        return element;
+    public void getShirtSize(String enterSize) {
+        Select selectSize = new Select(driver.findElement(size));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(size));
+        selectSize.selectByVisibleText(enterSize);
+
+
     }
 
     public WebElement getShirtQuantity(String enterQuantity) {

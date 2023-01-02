@@ -54,9 +54,10 @@ public class AccountLogin {
         return this;
     }
 
-    public MyAccountPage clickOnLoginButton() {
-        driver.findElement(loginButton).click();
-        return new MyAccountPage(driver);
+    public WebElement clickOnLoginButton() {
+        WebElement element = driver.findElement(loginButton);
+        element.click();
+        return element;
     }
 
     public WebElement getGuestCheckOutButton() {
