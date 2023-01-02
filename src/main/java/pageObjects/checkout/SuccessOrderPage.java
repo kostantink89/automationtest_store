@@ -18,7 +18,7 @@ public class SuccessOrderPage {
     private By successText = By.xpath("//span[@class='maintext']");
 
 
-    public WebElement getSuccess() {
+    public  WebElement getSuccess() {
         element = driver.findElement(successText);
         return element;
     }

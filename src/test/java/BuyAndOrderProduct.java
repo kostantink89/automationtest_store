@@ -1,15 +1,18 @@
 import base.BasePage;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.account.AccountLogin;
 import pageObjects.apparel.ApparelAccessoriesPage;
 import pageObjects.checkout.CheckOutConfirmation;
+import pageObjects.checkout.SuccessOrderPage;
 import pageObjects.home.HomePage;
 import pageObjects.shoes.HighWedgeDetails;
 import pageObjects.shoes.ShoesPage;
 import pageObjects.shoppingCart.ShoppingCart;
 import pageObjects.tshirts.DesignerMenProduct;
 import pageObjects.tshirts.TShirtsProductPage;
+
 
 public class BuyAndOrderProduct extends BasePage {
 
@@ -71,10 +74,14 @@ public class BuyAndOrderProduct extends BasePage {
         cart.clickOnCartCheckOutButton();
         AccountLogin loginUser = new AccountLogin(driver);
         loginUser.login("spparowj90", "sparri1");
-        loginUser
 
-       CheckOutConfirmation confirmation = new CheckOutConfirmation(driver);
 
+        CheckOutConfirmation confirmation = new CheckOutConfirmation(driver);
+        Assert.assertEquals(confirmation.getTotalAmountText(), "$150.00");
+        confirmation.getConfirmOrderButton();
+
+        SuccessOrderPage successPage = new SuccessOrderPage(driver);
+        Assert.assertEquals(successPage.getSuccessText(), "YOUR ORDER HAS BEEN PROCESSED!");
 
 
     }

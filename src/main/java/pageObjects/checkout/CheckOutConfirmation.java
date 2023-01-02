@@ -13,12 +13,18 @@ public class CheckOutConfirmation {
         this.driver = driver;
     }
 
-    private By checkOutButton = By.id("checkout_btn");
+    private By confirmOrder = By.id("checkout_btn");
 
-    public WebElement getCheckOutButton() {
-        element = driver.findElement(checkOutButton);
+    private By totalAmount = By.xpath("//span[@class='bold totalamout']");
+
+    public WebElement getConfirmOrderButton() {
+        element = driver.findElement(confirmOrder);
         element.click();
         return element;
+    }
+
+    public String getTotalAmountText() {
+        return driver.findElement(totalAmount).getText();
     }
 
 }
