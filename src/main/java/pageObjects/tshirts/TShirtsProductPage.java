@@ -2,10 +2,12 @@ package pageObjects.tshirts;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class TShirtsProductPage {
 
     private WebDriver driver;
+    WebElement element = null;
 
     public TShirtsProductPage(WebDriver driver) {
         this.driver = driver;
@@ -17,6 +19,25 @@ public class TShirtsProductPage {
 
     private By casualThreeFour = By.xpath("//a[@class='prdocutname'][contains(@title,'Casual 3/4')]");
 
+
+
+    public WebElement getJerseyCotton() {
+        element = driver.findElement(jerseyCotton);
+        element.click();
+        return element;
+    }
+
+    public WebElement getDesignerMenCasual() {
+        element = driver.findElement(designerMenCasual);
+        element.click();
+        return element;
+    }
+
+    public WebElement getCasualThreeFour() {
+        element = driver.findElement(casualThreeFour);
+        element.click();
+        return element;
+    }
 
 
 }

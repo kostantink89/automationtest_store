@@ -8,6 +8,8 @@ public class ShoppingCart {
 
     private WebDriver driver;
 
+    WebElement element;
+
     public ShoppingCart(WebDriver driver) {
         this.driver = driver;
     }
@@ -22,8 +24,10 @@ public class ShoppingCart {
         driver.findElement(cartUpdate).click();
     }
 
-    public void clickOnCartCheckOutButton() {
-        driver.findElement(cartCheckOut).click();
+    public WebElement clickOnCartCheckOutButton() {
+        element = driver.findElement(cartCheckOut);
+        element.click();
+        return element;
     }
 
     public void clickOnContinueShoppingButton() {

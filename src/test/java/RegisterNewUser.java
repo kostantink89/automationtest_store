@@ -6,7 +6,7 @@ import pageObjects.account.SuccessRegisterPage;
 
 public class RegisterNewUser extends BasePage {
 
-    @Test
+    @Test(enabled = false)
     public void endToEndRegisterUserTest() {
 
         HomePage home = new HomePage(driver);

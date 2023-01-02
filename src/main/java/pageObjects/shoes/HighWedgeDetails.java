@@ -13,15 +13,15 @@ public class HighWedgeDetails {
         this.driver = driver;
     }
 
-    private By thirdSize = By.id("#option344747");
-    private By fourthSize = By.id("#option344748");
+    private By thirdSize = By.id("option344747");
+    private By fourthSize = By.id("option344748");
 
-    private By fifthSize = By.id("#option344749");
+    private By fifthSize = By.id("option344749");
 
-    private By sixthSize = By.id("#option344750");
-    private By getShoeColour = By.id("#option345");
+    private By sixthSize = By.id("option344750");
+    private By getShoeColour = By.id("option345");
 
-    private By quantity = By.id("#product_quantity");
+    private By quantity = By.id("product_quantity");
 
     private By AddToCartButton = By.xpath("//a[@class='cart']");
 
@@ -49,6 +49,7 @@ public class HighWedgeDetails {
     }
 
     public void setItemQuantity(String enterValue) {
+        driver.findElement(quantity).clear();
         driver.findElement(quantity).sendKeys(enterValue);
     }
 

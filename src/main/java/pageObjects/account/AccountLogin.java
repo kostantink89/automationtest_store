@@ -8,6 +8,8 @@ public class AccountLogin {
 
     private WebDriver driver;
 
+    WebElement element;
+
 
     public AccountLogin(WebDriver driver) {
         this.driver = driver;
@@ -23,6 +25,9 @@ public class AccountLogin {
 
     private By loginButton = By.xpath("//button[@type='submit'][@title='Login']");
 
+    private By guestCheckOut = By.id("accountFrm_accountguest");
+
+
     public WebElement getAccountLoginText() {
         return driver.findElement(accountLoginText);
 
@@ -36,6 +41,7 @@ public class AccountLogin {
         driver.findElement(continueButton).click();
         return new CreateAccount(driver);
     }
+
 
     public AccountLogin login(String enterYourLogin, String enterYourPassword) {
         driver.findElement(loginName).sendKeys(enterYourLogin);
@@ -51,6 +57,18 @@ public class AccountLogin {
     public MyAccountPage clickOnLoginButton() {
         driver.findElement(loginButton).click();
         return new MyAccountPage(driver);
+    }
+
+    public WebElement getGuestCheckOutButton() {
+        element = driver.findElement(guestCheckOut);
+        element.click();
+        return element;
+    }
+
+    public WebElement clickOnContinueButton() {
+        element = driver.findElement(continueButton);
+        element.click();
+        return element;
     }
 
 
