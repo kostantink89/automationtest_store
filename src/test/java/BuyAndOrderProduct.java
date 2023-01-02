@@ -3,6 +3,7 @@ import base.BasePage;
 import org.testng.annotations.Test;
 import pageObjects.account.AccountLogin;
 import pageObjects.apparel.ApparelAccessoriesPage;
+import pageObjects.checkout.CheckOutConfirmation;
 import pageObjects.home.HomePage;
 import pageObjects.shoes.HighWedgeDetails;
 import pageObjects.shoes.ShoesPage;
@@ -68,10 +69,11 @@ public class BuyAndOrderProduct extends BasePage {
         designer.clickOnAddToCartButton();
 
         cart.clickOnCartCheckOutButton();
-        AccountLogin guestCheckOut = new AccountLogin(driver);
-        guestCheckOut.getGuestCheckOutButton();
+        AccountLogin loginUser = new AccountLogin(driver);
+        loginUser.login("spparowj90", "sparri1");
+        loginUser
 
-
+       CheckOutConfirmation confirmation = new CheckOutConfirmation(driver);
 
 
 
