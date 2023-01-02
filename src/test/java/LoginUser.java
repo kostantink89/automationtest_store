@@ -12,7 +12,8 @@ public class LoginUser extends BasePage {
 
         HomePage home = new HomePage(driver);
         home.getLoginRegister()
-                .login("spparowj90", "sparri1")
+                .login("spparowj90",
+                       "sparri1")
                 .clickOnLoginButton();
 
         MyAccountPage myAccount = new MyAccountPage(driver);
