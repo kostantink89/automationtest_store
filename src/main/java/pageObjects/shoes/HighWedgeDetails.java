@@ -3,7 +3,10 @@ package pageObjects.shoes;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import pageObjects.shoppingCart.ShoppingCart;
+import pageObjects.tshirts.TShirtsProductPage;
 
 public class HighWedgeDetails {
 
@@ -12,6 +15,10 @@ public class HighWedgeDetails {
     public HighWedgeDetails(WebDriver driver) {
         this.driver = driver;
     }
+
+    private By apparel = By.linkText("APPAREL & ACCESSORIES");
+
+    private By tShirts = By.xpath("//li[2]//div[1]//ul[1]//li[2]//a[1]");
 
     private By thirdSize = By.id("option344747");
     private By fourthSize = By.id("option344748");
@@ -29,8 +36,9 @@ public class HighWedgeDetails {
         return driver.findElement(thirdSize);
     }
 
-    public WebElement getFourthSize() {
-        return driver.findElement(fourthSize);
+    public HighWedgeDetails getFourthSize() {
+        driver.findElement(fourthSize).click();
+        return this;
     }
 
     public WebElement getFifthSize() {
@@ -42,19 +50,32 @@ public class HighWedgeDetails {
     }
 
 
-    public void selectShoeColour(String setColour) {
+    public HighWedgeDetails selectShoeColour(String setColour) {
         Select select = new Select(driver.findElement(getShoeColour));
         select.selectByVisibleText(setColour);
+        return this;
 
     }
 
-    public void setItemQuantity(String enterValue) {
+    public HighWedgeDetails setItemQuantity(String enterValue) {
         driver.findElement(quantity).clear();
         driver.findElement(quantity).sendKeys(enterValue);
+        return this;
     }
 
-    public void clickOnAddToCardButton() {
+    public ShoppingCart clickOnAddToCartButton() {
         driver.findElement(AddToCartButton).click();
+        return new ShoppingCart(driver);
+    }
+
+    public WebElement getTShirts() {
+        return driver.findElement(tShirts);
+    }
+
+    public TShirtsProductPage moveToTShirts() {
+        new Actions(driver).moveToElement(driver.findElement(apparel)).perform();
+        getTShirts().click();
+        return new TShirtsProductPage(driver);
     }
 
 

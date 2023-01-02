@@ -3,6 +3,8 @@ package pageObjects.shoppingCart;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pageObjects.account.AccountLogin;
+import pageObjects.shoes.HighWedgeDetails;
 
 public class ShoppingCart {
 
@@ -24,13 +26,14 @@ public class ShoppingCart {
         driver.findElement(cartUpdate).click();
     }
 
-    public WebElement clickOnCartCheckOutButton() {
+    public AccountLogin clickOnCartCheckOutButton() {
         element = driver.findElement(cartCheckOut);
         element.click();
-        return element;
+        return new AccountLogin(driver);
     }
 
-    public void clickOnContinueShoppingButton() {
+    public HighWedgeDetails clickOnContinueShoppingButton() {
         driver.findElement(continueShoppingButton).click();
+        return new HighWedgeDetails(driver);
     }
 }

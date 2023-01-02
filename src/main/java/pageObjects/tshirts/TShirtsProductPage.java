@@ -3,6 +3,7 @@ package pageObjects.tshirts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class TShirtsProductPage {
 
@@ -20,17 +21,16 @@ public class TShirtsProductPage {
     private By casualThreeFour = By.xpath("//a[@class='prdocutname'][contains(@title,'Casual 3/4')]");
 
 
-
     public WebElement getJerseyCotton() {
         element = driver.findElement(jerseyCotton);
         element.click();
         return element;
     }
 
-    public WebElement getDesignerMenCasual() {
+    public DesignerMenProduct getDesignerMenCasual() {
         element = driver.findElement(designerMenCasual);
         element.click();
-        return element;
+        return new DesignerMenProduct(driver);
     }
 
     public WebElement getCasualThreeFour() {

@@ -7,6 +7,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.account.AccountLogin;
+import pageObjects.apparel.ApparelAccessoriesPage;
+import pageObjects.tshirts.TShirtsProductPage;
 
 import java.time.Duration;
 
@@ -50,12 +52,10 @@ public class HomePage {
         return driver.findElement(home);
     }
 
-    public WebElement getApparel() {
-        return driver.findElement(apparel);
-    }
-
-    public void moveToElementApparel() {
-        new Actions(driver).moveToElement(driver.findElement(apparel)).perform();
+    public ApparelAccessoriesPage getApparel() {
+        WebElement element = driver.findElement(apparel);
+        element.click();
+        return new ApparelAccessoriesPage(driver);
     }
 
     public WebElement getMakeup() {
@@ -114,6 +114,8 @@ public class HomePage {
     public WebElement getTShirts() {
         return driver.findElement(tShirts);
     }
+
+
 }
 
     

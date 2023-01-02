@@ -3,6 +3,7 @@ package pageObjects.account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pageObjects.checkout.CheckOutConfirmation;
 
 public class AccountLogin {
 
@@ -26,6 +27,8 @@ public class AccountLogin {
     private By loginButton = By.xpath("//button[@type='submit'][@title='Login']");
 
     private By guestCheckOut = By.id("accountFrm_accountguest");
+
+    private By TShirts = By.cssSelector("li:nth-of-type(2) > a > img");
 
 
     public WebElement getAccountLoginText() {
@@ -54,10 +57,10 @@ public class AccountLogin {
         return this;
     }
 
-    public WebElement clickOnLoginButton() {
+    public CheckOutConfirmation clickOnLoginButton() {
         WebElement element = driver.findElement(loginButton);
         element.click();
-        return element;
+        return new CheckOutConfirmation(driver);
     }
 
     public WebElement getGuestCheckOutButton() {

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObjects.shoppingCart.ShoppingCart;
 
 import java.time.Duration;
 
@@ -29,35 +30,35 @@ public class DesignerMenProduct {
     private By addToCartButton = By.xpath("//a[@class='cart']");
 
 
-    public void getShirtColour(String value) {
+    public DesignerMenProduct getShirtColour(String value) {
         Select selectColour = new Select(driver.findElement(colour));
         selectColour.selectByValue(value);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(colour));
-
+        return this;
 
     }
 
-    public void getShirtSize(String enterSize) {
+    public DesignerMenProduct getShirtSize(String enterSize) {
         Select selectSize = new Select(driver.findElement(size));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(size));
         selectSize.selectByVisibleText(enterSize);
-
+        return this;
 
     }
 
-    public WebElement getShirtQuantity(String enterQuantity) {
+    public DesignerMenProduct getShirtQuantity(String enterQuantity) {
         element = driver.findElement(quantity);
         element.clear();
         element.sendKeys(enterQuantity);
-        return element;
+        return this;
 
     }
 
-    public WebElement clickOnAddToCartButton() {
+    public ShoppingCart clickOnAddToCartButton() {
         element = driver.findElement(addToCartButton);
         element.click();
-        return element;
+        return new ShoppingCart(driver);
     }
 }

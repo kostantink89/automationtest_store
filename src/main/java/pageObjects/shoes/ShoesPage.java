@@ -19,8 +19,10 @@ public class ShoesPage {
 
     private By rubyShoo = By.xpath("//a[@class='prdocutname'][contains(@title,'Ruby')]");
 
-    public WebElement getHighWedge() {
-        return driver.findElement(highWedge);
+    public HighWedgeDetails getHighWedge() {
+        driver.findElement(highWedge).click();
+        return new HighWedgeDetails(driver);
+
     }
 
     public WebElement getHighHeel() {
