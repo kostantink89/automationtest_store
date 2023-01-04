@@ -8,8 +8,6 @@ import pageObjects.home.HomePage;
 
 public class SuccessOrderPage {
 
-    public SuccessOrderPage success;
-
     private WebDriver driver;
     private WebElement element;
 
@@ -22,7 +20,7 @@ public class SuccessOrderPage {
 
 
     public WebElement getSuccess() {
-        element = driver.findElement(successText);
+        WebElement element = driver.findElement(successText);
         return element;
     }
 
@@ -30,9 +28,4 @@ public class SuccessOrderPage {
         return getSuccess().getText();
     }
 
-    public HomePage getSecondAssertion() {
-        Assert.assertEquals(success.getSuccessText(), "YOUR ORDER HAS BEEN PROCESSED!");
-        return new HomePage(driver);
-
-    }
 }

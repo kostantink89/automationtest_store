@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pageObjects.checkout.CheckOutConfirmation;
+import pageObjects.home.HomePage;
 
 public class AccountLogin {
 
@@ -57,10 +58,10 @@ public class AccountLogin {
         return this;
     }
 
-    public CheckOutConfirmation clickOnLoginButton() {
+    public HomePage clickOnLoginButton() {
         WebElement element = driver.findElement(loginButton);
         element.click();
-        return new CheckOutConfirmation(driver);
+        return new HomePage(driver);
     }
 
     public WebElement getGuestCheckOutButton() {

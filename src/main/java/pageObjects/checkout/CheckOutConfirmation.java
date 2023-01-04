@@ -8,7 +8,7 @@ import org.testng.AssertJUnit;
 
 public class CheckOutConfirmation {
 
-    public CheckOutConfirmation confirmation;
+
     private WebDriver driver;
     private WebElement element = null;
 
@@ -20,19 +20,15 @@ public class CheckOutConfirmation {
 
     private By totalAmount = By.xpath("//span[@class='bold totalamout']");
 
-    public SuccessOrderPage getConfirmOrderButton() {
-        element = driver.findElement(confirmOrder);
-        element.click();
-        return new SuccessOrderPage(driver);
+    public void clickOnConfirmOrder() {
+        driver.findElement(confirmOrder).click();
+
     }
 
     public String getTotalAmountText() {
         return driver.findElement(totalAmount).getText();
     }
 
-    public CheckOutConfirmation getFirstAssertion() {
-        Assert.assertEquals(confirmation.getTotalAmountText(), "$150.00");
-        return this;
-    }
+
 
 }

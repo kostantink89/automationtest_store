@@ -22,26 +22,31 @@ public class BuyAndOrderProduct extends BasePage {
 
 
         HomePage home = new HomePage(driver)
-                        .getApparel()
-                        .getShoes()
-                        .getHighWedge()
-                        .getFourthSize()
-                        .selectShoeColour("red")
-                        .setItemQuantity("2")
-                        .clickOnAddToCartButton()
-                        .clickOnContinueShoppingButton()
-                        .moveToTShirts()
-                        .getDesignerMenCasual()
-                        .getShirtColour("775")
-                        .getShirtSize("Medium")
-                        .getShirtQuantity("3")
-                        .clickOnAddToCartButton()
-                        .clickOnCartCheckOutButton()
-                        .login("spparowj90", "sparri1")
-                        .clickOnLoginButton()
-                        .getFirstAssertion()
-                        .getConfirmOrderButton()
-                        .getSecondAssertion();
+                .getApparel()
+                .getShoes()
+                .getHighWedge()
+                .getFourthSize()
+                .selectShoeColour("red")
+                .setItemQuantity("2")
+                .clickOnAddToCartButton()
+                .clickOnContinueShoppingButton()
+                .moveToTShirts()
+                .getDesignerMenCasual()
+                .getShirtColour("775")
+                .getShirtSize("Medium")
+                .getShirtQuantity("3")
+                .clickOnAddToCartButton()
+                .clickOnCartCheckOutButton()
+                .login("spparowj90", "sparri1")
+                .clickOnLoginButton();
+
+        CheckOutConfirmation confirmation = new CheckOutConfirmation(driver);
+        Assert.assertEquals(confirmation.getTotalAmountText(), "$150.00");
+        confirmation.clickOnConfirmOrder();
+
+
+        SuccessOrderPage success = new SuccessOrderPage(driver);
+        Assert.assertEquals(success.getSuccessText(), "YOUR ORDER HAS BEEN PROCESSED!");
 
 
     }
