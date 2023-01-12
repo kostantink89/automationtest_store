@@ -13,10 +13,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -27,11 +24,24 @@ public class BasePage {
 
     protected static WebDriver driver;
     protected static Logger log = LogManager.getLogger();
+    private static Properties prop = new Properties();
+
 
     @BeforeTest
     public void setup() throws IOException {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
-        driver = new ChromeDriver();
+        FileInputStream input = new FileInputStream("/IT/Projects/Intellij_IDEA/automationtest_store/src/main/java/config/config.properties");
+        prop.load(input);
+        if (prop.getProperty("browser").equalsIgnoreCase("chrome")) {
+            System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
+            driver = new ChromeDriver();
+        } else if (prop.getProperty("browser").equalsIgnoreCase("firefox")) {
+            System.setProperty("webdriver.gecko.driver", "src/main/resources/webdrivers/geckodriver.exe");
+            driver = new FirefoxDriver();
+        } else {
+            System.setProperty("webdriver.edge.driver", "src/main/resources/webdrivers/msedgedriver.exe");
+            driver = new EdgeDriver();
+        }
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://automationteststore.com/");
